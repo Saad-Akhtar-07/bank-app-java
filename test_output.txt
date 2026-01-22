@@ -1,0 +1,204 @@
+﻿????????????????????????????????????????????????????
+?          BANK SOFTWARE SYSTEM - TEST RUN         ?
+????????????????????????????????????????????????????
+
+=== PHASE 1: SETTING UP BRANCHES AND STAFF ===
+
+Created branches:
+  - Liverpool City Centre
+  - Manchester Piccadilly
+Sarah Wilson is now managing Liverpool City Centre
+John Roberts is now managing Manchester Piccadilly
+Emma Thompson added to Liverpool City Centre staff.
+James Brown added to Liverpool City Centre staff.
+Branch Liverpool City Centre added to regional manager David Chen's oversight.
+Branch Manchester Piccadilly added to regional manager David Chen's oversight.
+
+Staff setup complete.
+
+=== PHASE 2: REGISTERING CUSTOMERS AND OPENING ACCOUNTS ===
+
+Customer Alice Smith registered at Liverpool City Centre
+Teller Emma Thompson added new customer: Alice Smith
+Customer Bob Johnson registered at Liverpool City Centre
+Teller Emma Thompson added new customer: Bob Johnson
+Customer Carol Williams registered at Liverpool City Centre
+Teller James Brown added new customer: Carol Williams
+
+--- Opening Accounts ---
+Account 10001 added to customer Alice Smith
+Teller Emma Thompson opened new Current Account for Alice Smith
+Account 10002 added to customer Alice Smith
+Teller Emma Thompson opened new Savings Account for Alice Smith
+Account 10003 added to customer Bob Johnson
+Teller James Brown opened new Current Account for Bob Johnson
+Account 10004 added to customer Carol Williams
+Teller James Brown opened new Savings Account for Carol Williams
+
+Customers and accounts setup complete.
+Customer: Alice Smith | Accounts: 2 | Total Balance: ú6000.00 | Member since: Sat Jan 17 21:58:47 PKT 2026
+Customer: Bob Johnson | Accounts: 1 | Total Balance: ú250.00 | Member since: Sat Jan 17 21:58:47 PKT 2026
+Customer: Carol Williams | Accounts: 1 | Total Balance: ú10000.00 | Member since: Sat Jan 17 21:58:47 PKT 2026
+
+=== PHASE 3: PERFORMING TRANSACTIONS ===
+
+--- Deposit Test ---
+Teller Emma Thompson processing deposit...
+Deposited ú500.00 successfully. New balance: ú1500.00
+Deposit completed successfully.
+
+--- Withdrawal Test (Current Account) ---
+Teller Emma Thompson processing withdrawal...
+Withdrew ú200.00 successfully. New balance: ú1300.00
+Withdrawal completed successfully.
+
+--- Overdraft Test ---
+Bob's balance before: ú250.0
+Attempting to withdraw ú400 (balance is ú250, overdraft ú200)...
+Teller James Brown processing withdrawal...
+Withdrew ú400.00 successfully. New balance: ú-150.00
+Warning: You are now overdrawn by ú150.00
+Withdrawal completed successfully.
+Bob is overdrawn: true
+
+--- Savings Withdrawal Test ---
+Carol's savings: Savings Account #10004 - Balance: ú10000.00 | Interest Rate: 4.00% | Withdrawals Used: 0/4
+Teller James Brown processing withdrawal...
+Withdrew ú1000.00 successfully. New balance: ú9000.00
+Withdrawals remaining this year: 3
+Withdrawal completed successfully.
+Teller James Brown processing withdrawal...
+Withdrew ú500.00 successfully. New balance: ú8500.00
+Withdrawals remaining this year: 2
+Withdrawal completed successfully.
+Teller James Brown processing withdrawal...
+Withdrew ú500.00 successfully. New balance: ú8000.00
+Withdrawals remaining this year: 1
+Withdrawal completed successfully.
+Teller James Brown processing withdrawal...
+Withdrew ú250.00 successfully. New balance: ú7750.00
+Withdrawals remaining this year: 0
+Withdrawal completed successfully.
+
+--- Attempting 5th withdrawal (should fail) ---
+Teller James Brown processing withdrawal...
+Error: Withdrawal limit reached! Savings accounts are limited to 4 withdrawals per year.
+You have already made 4 withdrawals this year. Please wait until January 1st.
+
+=== PHASE 4: ACCOUNT SUSPENSION ===
+
+Manager investigates suspicious activity...
+Account 10003 has been SUSPENDED.
+Manager Sarah Wilson suspended account 10003
+
+--- Attempting transaction on suspended account ---
+Teller Emma Thompson processing deposit...
+Error: Cannot deposit to a suspended account.
+
+--- Unsuspending account ---
+Account 10003 has been UNSUSPENDED.
+Manager Sarah Wilson unsuspended account 10003
+Teller Emma Thompson processing deposit...
+Deposited ú100.00 successfully. New balance: ú-50.00
+Deposit completed successfully.
+
+=== PHASE 5: REPORTING ===
+
+
+========== HEAD OFFICE REPORT ==========
+Branch: Liverpool City Centre
+Sort Code: 12-34-56
+Manager: Sarah Wilson
+-----------------------------------------
+Total Customers: 3
+Total Accounts: 4
+=========================================
+
+--- Regional Manager Views ---
+Liverpool branch total balance: ú14000.00
+
+============ REGIONAL REPORT ============
+Regional Manager: David Chen
+Number of Branches: 2
+-----------------------------------------
+
+Branch: Liverpool City Centre
+  Customers: 3
+  Accounts: 4
+  Total Balance: ú14000.00
+
+Branch: Manchester Piccadilly
+  Customers: 0
+  Accounts: 0
+  Total Balance: ú0.00
+
+-----------------------------------------
+REGIONAL TOTALS:
+  Total Customers: 3
+  Total Accounts: 4
+  Total Balance: ú14000.00
+=========================================
+
+
+=== PHASE 6: YEAR-END SAVINGS RESET ===
+
+Before reset - Carol's remaining withdrawals: 0
+
+=== YEAR-END RESET: Liverpool City Centre ===
+Resetting savings account withdrawal counts...
+Account 10002: Withdrawal count reset for new year.
+Account 10004: Withdrawal count reset for new year.
+Reset complete. 2 savings accounts processed.
+===============================
+
+After reset - Carol's remaining withdrawals: 4
+
+--- Post-reset withdrawal test ---
+Teller James Brown processing withdrawal...
+Withdrew ú100.00 successfully. New balance: ú7650.00
+Withdrawals remaining this year: 3
+Withdrawal completed successfully.
+
+=== PHASE 7: TRANSACTION HISTORY ===
+
+Alice's Current Account Transaction History:
+=== Transaction History ===
+1. [DEPOSIT] +: ú1000.00 on Sat Jan 17 21:58:47 PKT 2026
+2. [DEPOSIT] +: ú500.00 on Sat Jan 17 21:58:47 PKT 2026
+3. [WITHDRAWAL] -: ú200.00 on Sat Jan 17 21:58:47 PKT 2026
+Total: ú1300.00
+===========================
+
+Carol's Savings Account Transaction History:
+=== Transaction History ===
+1. [DEPOSIT] +: ú10000.00 on Sat Jan 17 21:58:47 PKT 2026
+2. [WITHDRAWAL] -: ú1000.00 on Sat Jan 17 21:58:47 PKT 2026
+3. [WITHDRAWAL] -: ú500.00 on Sat Jan 17 21:58:47 PKT 2026
+4. [WITHDRAWAL] -: ú500.00 on Sat Jan 17 21:58:47 PKT 2026
+5. [WITHDRAWAL] -: ú250.00 on Sat Jan 17 21:58:47 PKT 2026
+6. [WITHDRAWAL] -: ú100.00 on Sat Jan 17 21:58:47 PKT 2026
+Total: ú7650.00
+===========================
+
+=== PHASE 8: INTEREST CALCULATION ===
+
+Carol's savings balance: ú7650.0
+Interest rate: 4.0%
+Daily interest earned: ú0.8384
+Daily interest of ú0.8384 applied. New balance: ú7650.84
+
+????????????????????????????????????????????????????
+?              TEST RUN COMPLETE                   ?
+????????????????????????????????????????????????????
+
+Final Account States:
+  Current Account #10001 - Balance: ú1300.00 | Overdraft Limit: ú500.00 | Available: ú1800.00
+  Savings Account #10002 - Balance: ú5000.00 | Interest Rate: 3.50% | Withdrawals Used: 0/4
+  Current Account #10003 - Balance: ú-50.00 | Overdraft Limit: ú200.00 | Available: ú150.00
+  Savings Account #10004 - Balance: ú7650.84 | Interest Rate: 4.00% | Withdrawals Used: 1/4
+
+Branch Summary:
+  Branch: Liverpool City Centre (12-34-56) | Customers: 3 | Accounts: 4 | Manager: Sarah Wilson
+  Branch: Manchester Piccadilly (12-34-78) | Customers: 0 | Accounts: 0 | Manager: John Roberts
+
+=== ALL TESTS COMPLETED SUCCESSFULLY ===
