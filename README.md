@@ -1,8 +1,8 @@
 # Bank Software System
 
-**Module:** 7129COMP - Software Development with Java  
+## Project Purpose
+This project is a robust Java-based banking management system designed to simulate core banking operations. It facilitates the management of customer accounts, transaction processing, and administrative oversight through both a Graphical User Interface (GUI) and a console interface. The system supports multiple user roles—including Tellers, Managers, and Regional Managers—and handles various account types such as Savings and Current accounts. Key features include transaction logging, limit management, account suspension, and comprehensive financial reporting.
 
----
 
 ## How to Run
 
@@ -18,7 +18,6 @@ cd bin
 java com.bank.main.BankApplication
 ```
 
----
 
 ## Project Structure
 
